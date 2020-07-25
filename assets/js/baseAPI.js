@@ -3,7 +3,8 @@ $.ajaxPrefilter(function(options){
     console.log(options.url)
     options.url = 'http://ajax.frontend.itheima.net' + options.url
     // 统一为有权限的接口，设置headers请求头
-    if(options.url.indexOf('/my') !== -1){
+    if(options.url.startsWith('http://ajax.frontend.itheima.net/my/')){
+    // if(options.url.indexOf('/my/') !== 0){
         options.headers = {
             Authorization: localStorage.getItem('token') || ''
         }
